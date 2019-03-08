@@ -1,0 +1,20 @@
+{
+  "bindings": [
+    {
+      "name": "myTimer",
+      "type": "timerTrigger",
+      "direction": "in",
+      "schedule": "*/30 * * * * *"
+    },
+    {
+      "name": "sensorTelemetry",
+      "type": "cosmosDB",
+      "databaseName": "SensorData",
+      "collectionName": "Telemetry",
+      "createIfNotExists": true,
+      "connectionStringSetting": "MyAccount_COSMOSDB",
+      "direction": "out"
+    }
+  ],
+  "scriptFile": "..\\dist\\CosmosInserter\\index.js"
+}

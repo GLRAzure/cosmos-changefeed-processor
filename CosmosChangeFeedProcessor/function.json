@@ -1,0 +1,22 @@
+{
+  "bindings": [
+    {
+      "type": "cosmosDBTrigger",
+      "name": "documents",
+      "direction": "in",
+      "leaseCollectionName": "leases",
+      "connectionStringSetting": "MyAccount_COSMOSDB",
+      "databaseName": "SensorData",
+      "collectionName": "Telemetry",
+      "createLeaseCollectionIfNotExists": "true"
+    },
+    {
+      "name": "outputBlob",
+      "type": "blob",
+      "path": "changeoutput/{rand-guid}.json",
+      "connection": "AzureWebJobsStorage",
+      "direction": "out"
+    }
+  ],
+  "scriptFile": "..\\dist\\CosmosChangeFeedProcessor\\index.js"
+}
